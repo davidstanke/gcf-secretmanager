@@ -1,11 +1,6 @@
 #!/bin/bash
 
-BILLING_ACCOUNT=$(gcloud beta billing projects describe "$(gcloud config get-value project)" --format="value(billingAccountName)" || sed -e 's/.*\///g')
-
-project_id='stanke-20210224i'
-gcloud projects create ${project_id}
-gcloud config set project ${project_id}
-gcloud beta billing projects link ${project_id} --billing-account=${BILLING_ACCOUNT}
+project_id=$(gcloud config get-value project)
 
 gcloud services enable cloudfunctions.googleapis.com secretmanager.googleapis.com cloudbuild.googleapis.com
 

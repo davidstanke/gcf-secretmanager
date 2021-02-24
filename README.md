@@ -2,6 +2,11 @@
 
 A lil' script to create a Google Cloud Function that accesses a secret stored in Secret Manager.
 
+Components:
+* A secret stored in Secret Manager
+* IAM policy allowing Cloud Functions to access the secret
+* A Cloud Function (written in python) which accesses the secret and (gasp!!!) displays it to the user.
+
 ### To use:
 1. clone this repo
 2. (optional) create a new GCP project and activate it in gcloud
